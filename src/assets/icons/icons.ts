@@ -13,6 +13,10 @@ import {
   ChevronLeft,
   ChevronRight,
   SquarePen,
+  LoaderCircle,
+  House,
+  Menu,
+  X,
 } from "lucide-react";
 
 export {
@@ -30,4 +34,8 @@ export {
   ChevronLeft,
   ChevronRight,
   SquarePen,
+  LoaderCircle,
+  House,
+  Menu,
+  X,
 };
