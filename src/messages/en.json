@@ -1,3 +1,64 @@
 {
-  
+  "sidebar": {
+    "brand": "User Management",
+    "users": "Users",
+    "addUser": "Add User",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "header": {
+    "brand": "User Management",
+    "title": "Users",
+    "subtitle": "Manage your users",
+    "searchPlaceholder": "Search users..."
+  },
+  "actions": {
+    "toggleTheme": "Toggle theme",
+    "changeLanguage": "Change language"
+  },
+  "dashboard": {
+    "cards": {
+      "allUsers": {
+        "title": "All Users",
+        "description": "View all users",
+        "action": "Read All Users"
+      },
+      "viewUser": {
+        "title": "View User",
+        "description": "Get a single user",
+        "action": "Read One User"
+      },
+      "createUser": {
+        "title": "Create User",
+        "description": "Add a new user",
+        "action": "Create User"
+      },
+      "deleteUser": {
+        "title": "Delete User",
+        "description": "Remove a user",
+        "action": "Delete User"
+      }
+    }
+  },
+  "users": {
+    "allUsers": "All Users",
+    "userDetails": "User Details",
+    "createNewUser": "Create New User",
+    "updateUser": "Update User",
+    "id": "ID",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "actions": "Actions",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loading": "Loading users...",
+    "empty": "No users found",
+    "selectUser": "Select a user to view details.",
+    "namePlaceholder": "Enter name",
+    "emailPlaceholder": "Enter email",
+    "passwordPlaceholder": "Enter password",
+    "createUser": "Create User"
+  }
 }

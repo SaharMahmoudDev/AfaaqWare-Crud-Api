@@ -1,3 +1,64 @@
 {
-  
+  "sidebar": {
+    "brand": "إدارة المستخدمين",
+    "users": "المستخدمون",
+    "addUser": "إضافة مستخدم",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج"
+  },
+  "header": {
+    "brand": "إدارة المستخدمين",
+    "title": "المستخدمون",
+    "subtitle": "إدارة بيانات المستخدمين",
+    "searchPlaceholder": "ابحث عن مستخدم..."
+  },
+  "actions": {
+    "toggleTheme": "تبديل الوضع",
+    "changeLanguage": "تغيير اللغة"
+  },
+  "dashboard": {
+    "cards": {
+      "allUsers": {
+        "title": "كل المستخدمين",
+        "description": "عرض كل المستخدمين",
+        "action": "قراءة كل المستخدمين"
+      },
+      "viewUser": {
+        "title": "عرض مستخدم",
+        "description": "عرض مستخدم واحد",
+        "action": "قراءة مستخدم واحد"
+      },
+      "createUser": {
+        "title": "إنشاء مستخدم",
+        "description": "إضافة مستخدم جديد",
+        "action": "إنشاء مستخدم"
+      },
+      "deleteUser": {
+        "title": "حذف مستخدم",
+        "description": "إزالة مستخدم",
+        "action": "حذف مستخدم"
+      }
+    }
+  },
+  "users": {
+    "allUsers": "كل المستخدمين",
+    "userDetails": "تفاصيل المستخدم",
+    "createNewUser": "إنشاء مستخدم جديد",
+    "updateUser": "تحديث المستخدم",
+    "id": "المعرف",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "actions": "الإجراءات",
+    "view": "عرض",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "loading": "جاري تحميل المستخدمين...",
+    "empty": "لا يوجد مستخدمون",
+    "selectUser": "اختار مستخدمًا لعرض التفاصيل.",
+    "namePlaceholder": "اكتب الاسم",
+    "emailPlaceholder": "اكتب البريد الإلكتروني",
+    "passwordPlaceholder": "اكتب كلمة المرور",
+    "createUser": "إنشاء مستخدم"
+  }
 }
