@@ -6,6 +6,10 @@ export interface User {
   createdAt: string;
   password: string;
 }
+export interface GetUsersResponse {
+  users: User[];
+  total: number;
+}
 
 export type UserPayload = Pick<
   User,
@@ -19,6 +23,14 @@ export interface GetUsersParams {
 }
 
 export interface UpdateUserProps {
-  id: number;
-  data: UserPayload;
+  id: number|null;
+  data:{
+    name: string;
+  email: string;
+  password?: string;
+  }
 }
+ export type InitialUpdateUser = Pick<
+  User,
+  "name" | "email"
+>;

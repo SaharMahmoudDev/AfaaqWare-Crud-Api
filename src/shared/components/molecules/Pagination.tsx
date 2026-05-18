@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight } from "@/assets/icons/icons";
 import { Button } from "@/shared/components/atoms/Button";
 import { cn } from "@/lib/cn";
+import { useLocale } from "next-intl";
 
 interface PaginationProps {
   currentPage: number;
@@ -15,6 +16,8 @@ export function Pagination({
   onPageChange,
   className,
 }: PaginationProps) {
+  const locale = useLocale();
+
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   const goToPrevious = () => {
@@ -34,17 +37,22 @@ export function Pagination({
       aria-label="Pagination"
       className={cn("flex items-center justify-center gap-2", className)}
     >
-      <Button
-        size="icon"
-        variant="outline"
-        onClick={goToPrevious}
-        disabled={currentPage === 1}
-        aria-label="Previous page"
-        className="size-9  shadow-none"
-      >
-        <ChevronLeft className="size-4" />
-      </Button>
-
+      {pages.length > 0 && (
+        <Button
+          size="icon"
+          variant="outline"
+          onClick={goToPrevious}
+          disabled={currentPage === 1}
+          aria-label="Previous page"
+          className="size-9  shadow-none"
+        >
+          {locale === "ar" ? (
+            <ChevronRight className="size-4" />
+          ) : (
+            <ChevronLeft className="size-4" />
+          )}
+        </Button>
+      )}
       {pages.map((page) => {
         const isActive = page === currentPage;
 
@@ -66,17 +74,22 @@ export function Pagination({
           </Button>
         );
       })}
-
-      <Button
-        size="icon"
-        variant="outline"
-        onClick={goToNext}
-        disabled={currentPage === totalPages}
-        aria-label="Next page"
-        className="size-9 rounded-lg shadow-none"
-      >
-        <ChevronRight className="size-4" />
-      </Button>
+      {pages.length > 0 && (
+        <Button
+          size="icon"
+          variant="outline"
+          onClick={goToNext}
+          disabled={currentPage === totalPages}
+          aria-label="Next page"
+          className="size-9 rounded-lg shadow-none"
+        >
+          {locale === "ar" ? (
+            <ChevronLeft className="size-4" />
+          ) : (
+            <ChevronRight className="size-4" />
+          )}
+        </Button>
+      )}
     </nav>
   );
 }

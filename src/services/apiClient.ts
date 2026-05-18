@@ -1,10 +1,16 @@
 import axiosInstance from "./axiosConfig";
+  import type { AxiosResponse } from "axios";
 
 class ApiClient {
-  async get<T>(url: string, params?: Record<string, unknown>): Promise<T> {
-    const res = await axiosInstance.get<T>(url, { params });
-    return res.data;
-  }
+async get<T>(
+  url: string,
+  params?: Record<string, unknown>,
+): Promise<AxiosResponse<T>> {
+  const res = await axiosInstance.get<T>(url, { params });
+  console.log(res)
+
+  return res;
+}
   async post<T>(url: string, data?: unknown): Promise<T> {
     const res = await axiosInstance.post<T>(url, data);
     return res.data;

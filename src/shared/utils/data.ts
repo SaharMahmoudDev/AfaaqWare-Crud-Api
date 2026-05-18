@@ -2,19 +2,19 @@ import { Users, UserPlus, Settings } from "@/assets/icons/icons";
 
 export const SIDEBAR_LINKS = [
   {
-    label: "Users",
+    label: "users",
     href: "/",
     icon: Users,
     fill: true,
   },
   {
-    label: "Add User",
+    label: "addUser",
     href: "#",
     icon: UserPlus,
     fill: false,
   },
   {
-    label: "Settings",
+    label: "settings",
     href: "#",
     icon: Settings,
     fill: false,

@@ -1,90 +1,122 @@
 "use client";
+
+import { forwardRef } from "react";
+import { useTranslations } from "next-intl";
+
 import { User, SquarePen } from "@/assets/icons/icons";
 import { Card } from "@/shared/components/atoms/Card";
-import { IconLabel } from "@/shared/components/molecules/IconLabel";
 import { Input } from "@/shared/components/atoms/Input";
 import { Button } from "@/shared/components/atoms/Button";
+import { IconLabel } from "@/shared/components/molecules/IconLabel";
+import { ResetAction } from "@/shared/components/atoms/ResetAction";
+import { hasValues } from "@/shared/utils/hasValues";
 
 interface UserFormProps {
   mode: "create" | "update";
+
   values: {
     name: string;
     email: string;
     password?: string;
   };
+
   isLoading: boolean;
   disabled: boolean;
+  resetForm?: () => void;
+
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 
   onSubmit: React.SubmitEventHandler<HTMLFormElement>;
 }
 
-export function UserForm({
-  mode,
-  onSubmit,
-  onChange,
-  values,
-  isLoading = false,
-  disabled,
-}: UserFormProps) {
-  const isCreate = mode === "create";
+export const UserForm = forwardRef<HTMLDivElement, UserFormProps>(
+  function UserForm(
+    {
+      mode,
+      onSubmit,
+      onChange,
+      values,
+      resetForm,
+      isLoading = false,
+      disabled,
+    },
+    ref,
+  ) {
+    const t = useTranslations("users");
 
-  return (
-    <Card
-      className={`space-y-6 ${isCreate ? "bg-muted" : "bg-form"}`}
-      padding="lg"
-      shadow="sm"
-    >
-      <IconLabel
-        icon={isCreate ? User : SquarePen}
-        title={isCreate ? "Create New User" : "Update User"}
-        fillIcon={isCreate}
-        variant="info"
-        varianTitle="info"
-      />
+    const hasValue = hasValues(values);
 
-      <form
-        className={`${isCreate ? "md:space-x-4 flex flex-col md:flex-row space-y-4 md:space-y-0" : "space-y-4"} `}
-        onSubmit={onSubmit}
-      >
-        <Input
-          label="Name"
-          placeholder="Enter name"
-          value={values.name}
-          onChange={onChange}
-          name="name"
-        />
+    const isCreate = mode === "create";
 
-        <Input
-          label="Email"
-          type="email"
-          placeholder="Enter email"
-          value={values.email}
-          onChange={onChange}
-          name="email"
-        />
+    return (
+      <div ref={ref}>
+        <Card className="space-y-6 bg-card" padding="lg" shadow="sm">
+          <div className="w-full flex justify-between items-center">
+            <IconLabel
+              icon={isCreate ? User : SquarePen}
+              title={isCreate ? t("createNewUser") : t("updateUser")}
+              fillIcon={isCreate}
+              variant="info"
+              varianTitle="info"
+            />
+            {hasValue && (
+              <ResetAction onClick={() => resetForm?.()}>
+                {" "}
+                {t("resetDetails")}
+              </ResetAction>
+            )}
+          </div>
+          <form
+            className={
+              isCreate
+                ? "md:space-x-4 flex flex-col md:flex-row space-y-4 md:space-y-0"
+                : "space-y-4"
+            }
+            onSubmit={onSubmit}
+          >
+            <Input
+              label={t("name")}
+              placeholder={t("namePlaceholder")}
+              value={values.name}
+              onChange={onChange}
+              name="name"
+              required={isCreate}
+            />
 
-        {isCreate && (
-          <Input
-            label="Password"
-            type="password"
-            placeholder="Enter password"
-            value={values.password}
-            onChange={onChange}
-            name="password"
-          />
-        )}
+            <Input
+              type="email"
+              label={t("email")}
+              placeholder={t("emailPlaceholder")}
+              value={values.email}
+              onChange={onChange}
+              name="email"
+              required={isCreate}
+            />
 
-        <Button
-          className="md:self-end self-start"
-          variant="info"
-          type="submit"
-          isLoading={isLoading}
-          disabled={disabled || isLoading}
-        >
-          {isCreate ? "Create User" : "Update User"}
-        </Button>
-      </form>
-    </Card>
-  );
-}
+            {isCreate && (
+              <Input
+                type="password"
+                label={t("password")}
+                placeholder={t("passwordPlaceholder")}
+                value={values.password}
+                onChange={onChange}
+                name="password"
+                required
+              />
+            )}
+
+            <Button
+              className="md:self-end self-start"
+              variant="info"
+              type="submit"
+              isLoading={isLoading}
+              disabled={disabled || isLoading}
+            >
+              {isCreate ? t("createUser") : t("updateUser")}
+            </Button>
+          </form>
+        </Card>
+      </div>
+    );
+  },
+);

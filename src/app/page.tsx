@@ -1,7 +1,11 @@
+import UsersDashboard from "./(dashboard)/usersDashboard/page";
+
 export default function Home() {
   return (
     <div>
-      <main></main>
+      <main>
+        <UsersDashboard/>
+      </main>
     </div>
   );
 }

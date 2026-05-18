@@ -59,6 +59,28 @@
     "namePlaceholder": "اكتب الاسم",
     "emailPlaceholder": "اكتب البريد الإلكتروني",
     "passwordPlaceholder": "اكتب كلمة المرور",
-    "createUser": "إنشاء مستخدم"
+    "createUser": "إنشاء مستخدم",
+    "resetDetails":"مسح"
+  },
+  "notifications": {
+    "dashboard": {
+      "users": {
+        "createSuccess": "تم إنشاء المستخدم بنجاح",
+        "createError": "حدث خطأ أثناء إنشاء المستخدم",
+        "updateSuccess": "تم تعديل بيانات المستخدم بنجاح",
+        "updateError": "حدث خطأ أثناء تعديل بيانات المستخدم",
+        "deleteSuccess": "تم حذف المستخدم بنجاح",
+        "deleteError": "حدث خطأ أثناء حذف المستخدم",
+         "deleteConfirmTitle": "هل أنت متأكد؟",
+        "deleteConfirmText": "سيتم حذف هذا المستخدم نهائيًا.",
+        "confirmDelete": "نعم، احذف",
+        "cancelDelete": "إلغاء"
+      }
+    }
+  },
+    "notFound": {
+    "title": "الصفحة غير موجودة",
+    "backHome": "العودة للصفحة الرئيسية"
   }
+
 }

@@ -1,21 +1,16 @@
 "use client";
 
 import { Search, Menu, X } from "@/assets/icons/icons";
-
 import { cn } from "@/lib/cn";
-
 import { Input } from "../atoms/Input";
 import { Title } from "../atoms/Title";
 import { Text } from "../atoms/Text";
 import ThemeToggle from "../atoms/ThemeButton";
 import { Button } from "../atoms/Button";
 import LocaleSwitcher from "../atoms/localeSwitcher";
-
 import { changeLocaleAction } from "@/i18n/locale";
-
+import { useLocale, useTranslations } from "next-intl";
 interface HeaderProps {
-  title?: string;
-  description?: string;
   searchValue?: string;
   onSearchChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 
@@ -27,66 +22,70 @@ interface HeaderProps {
 }
 
 export function Header({
-  title = "Users",
-  description = "Manage your users",
   searchValue,
   onSearchChange,
   className,
   isSidebarOpen,
   setIsSidebarOpen,
 }: HeaderProps) {
+  const t = useTranslations("header");
+  const locale = useLocale();
+
   return (
     <>
-      <Button
-        size="icon"
-        variant="outline"
-        onClick={() => setIsSidebarOpen((prev) => !prev)}
-        className="fixed right-5 top-7 z-50 md:hidden"
-        aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
-      >
-        {isSidebarOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-      </Button>
-
       <header
         className={cn(
-          " sticky top-0 w-full border-b border-border/80 bg-background/80 px-4 py-4 backdrop-blur-md",
-          "md:px-6",
+          "sticky top-0 z-10 border-b border-border/80 bg-sidebar/20 px-4 py-7 backdrop-blur-md",
+          "md:px-6  ",
+          locale === "ar" ? " rounded-tl-xl " : " rounded-tr-xl ",
+
           className,
         )}
       >
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          {/* Left */}
-          <div className="flex justify-between items-center relative ">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          {/* Top row */}
+          <div className="flex items-center justify-between gap-4">
             <div>
-              <Title size="lg">{title}</Title>
+              <Title size="xl">{t("title")}</Title>
 
-              {description && (
-                <Text size="md" variant="muted">
-                  {description}
-                </Text>
-              )}
+              <Text size="md" variant="muted">
+                {t("subtitle")}
+              </Text>
             </div>
+
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => setIsSidebarOpen((prev) => !prev)}
+              className="relative z-70 shrink-0 lg:hidden"
+              aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
+            >
+              {isSidebarOpen ? (
+                <X className="size-5" />
+              ) : (
+                <Menu className="size-5" />
+              )}
+            </Button>
           </div>
 
           {/* Right */}
-          <div className="flex items-center gap-3">
-            {/* Search */}
+          <div className="flex items-center gap-3 z-10">
             <div className="w-full sm:w-72">
               <Input
                 type="search"
-                placeholder="Search users..."
+                placeholder={t("searchPlaceholder")}
                 value={searchValue}
                 onChange={onSearchChange}
                 rightIcon={<Search className="size-4" />}
               />
             </div>
 
-            <div className="flex justify-btween items-center space-x-4 ml-auto md:ml-0">
-              {/* Theme */}
-
+            <div
+              className={`flex items-center space-x-4 ${
+                locale === "ar" ? "mr-auto lg:mr-0" : "ml-auto lg:ml-0"
+              }`}
+            >
               <ThemeToggle />
-
-              {/* Locale */}
               <LocaleSwitcher changeLocaleAction={changeLocaleAction} />
             </div>
           </div>

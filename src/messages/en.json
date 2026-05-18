@@ -59,6 +59,29 @@
     "namePlaceholder": "Enter name",
     "emailPlaceholder": "Enter email",
     "passwordPlaceholder": "Enter password",
-    "createUser": "Create User"
+    "createUser": "Create User",
+    "resetDetails":"reset"
+  },
+  "notifications": {
+    "dashboard": {
+      "users": {
+        "createSuccess": "User created successfully",
+        "createError": "Something went wrong while creating user",
+        "updateSuccess": "User updated successfully",
+        "updateError": "Something went wrong while updating user",
+        "deleteSuccess": "User deleted successfully",
+        "deleteError": "Something went wrong while deleting user",
+        "deleteConfirmTitle": "Are you sure?",
+        "deleteConfirmText": "This user will be deleted permanently.",
+        "confirmDelete": "Yes, delete",
+        "cancelDelete": "Cancel"
+      }
+    }
+  },
+   "notFound": {
+    "title": "Page not found",
+    "backHome": "Back Home"
   }
+
+
 }

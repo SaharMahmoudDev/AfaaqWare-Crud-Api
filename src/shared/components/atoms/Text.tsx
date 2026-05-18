@@ -4,8 +4,7 @@ type TextSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 type TextVariant = "default" | "muted" | "white";
 
-interface TextProps {
-  children: React.ReactNode;
+type TextProps = React.HTMLAttributes<HTMLParagraphElement> & {  children: React.ReactNode;
   size?: TextSize;
   variant?: TextVariant;
   center?: boolean;
@@ -32,6 +31,7 @@ export function Text({
   variant = "default",
   center = false,
   className,
+  ...props
 }: TextProps) {
   return (
     <p
@@ -42,6 +42,7 @@ export function Text({
         center && "text-center",
         className,
       )}
+      {...props}
     >
       {children}
     </p>
