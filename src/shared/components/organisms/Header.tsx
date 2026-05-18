@@ -35,7 +35,7 @@ export function Header({
     <>
       <header
         className={cn(
-          "sticky top-0 z-10 border-b border-border/80 bg-sidebar/20 px-4 py-7 backdrop-blur-md",
+          "sticky top-0 z-10 border-b border-border/80 bg-sidebar/20 sm:bg-sidebar/80 px-4 py-7 backdrop-blur-md",
           "md:px-6  ",
           locale === "ar" ? " rounded-tl-xl " : " rounded-tr-xl ",
 

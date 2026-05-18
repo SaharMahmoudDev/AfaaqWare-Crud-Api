@@ -30,7 +30,7 @@ export function UsersTableSection({
   onDelete,
 }: UsersTableSectionProps) {
   return (
-    <Card className="space-y-4 min-w-0">
+    <Card className="space-y-4 min-w-0 px-0 sm:px-6">
       <UserTable
         ref={tableRef}
         users={users}

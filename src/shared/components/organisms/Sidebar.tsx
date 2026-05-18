@@ -27,14 +27,14 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black/40 lg:hidden"
+          className="fixed inset-0 z-50 bg-black/40 lg:hidden"
           onClick={closeSidebar}
         />
       )}
 
       <aside
         className={cn(
-          "fixed top-0 z-40 flex min-h-screen w-70 flex-col border-sidebar-border bg-sidebar px-4 py-6 text-sidebar-foreground",
+          "fixed top-0 z-50 flex min-h-screen w-70 flex-col border-sidebar-border bg-sidebar px-4 py-6 text-sidebar-foreground",
           "transition-transform duration-300 ease-in-out",
           "lg:static lg:translate-x-0",
 

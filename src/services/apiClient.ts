@@ -7,8 +7,6 @@ async get<T>(
   params?: Record<string, unknown>,
 ): Promise<AxiosResponse<T>> {
   const res = await axiosInstance.get<T>(url, { params });
-  console.log(res)
-
   return res;
 }
   async post<T>(url: string, data?: unknown): Promise<T> {

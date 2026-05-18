@@ -84,10 +84,10 @@
 }
 
 .dark {
-  --background: #020617;
+  --background: #03081d;
   --foreground: #f8fafc;
 
-  --card: #0f172a;
+  --card: #111a2c;
   --card-foreground: #f8fafc;
 
   --primary: #3b82f6;
