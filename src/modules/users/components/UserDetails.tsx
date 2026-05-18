@@ -20,7 +20,7 @@ export const UserDetails = forwardRef<HTMLDivElement, UserDetailsProps>(
 
     return (
       <div ref={ref}>
-        <Card className="space-y-6 bg-muted" padding="lg" shadow="sm">
+        <Card className="space-y-6 bg-muted!" padding="lg" shadow="sm">
           <div className="w-full flex justify-between items-center">
             <IconLabel
               icon={IconUser}

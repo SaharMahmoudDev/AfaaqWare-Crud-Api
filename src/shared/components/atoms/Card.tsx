@@ -41,7 +41,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "w-full h-fit border border-border bg-card text-card-foreground",
+        "w-full h-fit border border-border bg-card/20 md:bg-card text-card-foreground",
         paddings[padding],
         shadows[shadow],
         radius[rounded],

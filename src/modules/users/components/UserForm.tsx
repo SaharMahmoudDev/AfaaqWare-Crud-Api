@@ -50,7 +50,7 @@ export const UserForm = forwardRef<HTMLDivElement, UserFormProps>(
 
     return (
       <div ref={ref}>
-        <Card className="space-y-6 bg-card" padding="lg" shadow="sm">
+        <Card className="space-y-6 bg-card/20" padding="lg" shadow="sm">
           <div className="w-full flex justify-between items-center">
             <IconLabel
               icon={isCreate ? User : SquarePen}

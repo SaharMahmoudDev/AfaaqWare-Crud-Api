@@ -51,7 +51,7 @@ export default function UsersDashboard() {
     >
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className=" flex min-w-0 flex-1 flex-col relative">
         <Header
           searchValue={search}
           onSearchChange={(e) => {

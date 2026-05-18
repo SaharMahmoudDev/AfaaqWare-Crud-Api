@@ -21,7 +21,7 @@ export async function getUsersApi({
     _order: "desc",
   });
   const totalUsers = Number(res.headers["x-total-count"]);
-  const totalPages = Number(totalUsers / limit);
+  const totalPages = Math.ceil(Number(totalUsers / limit));
   return {
     users: res.data,
     total: Number(res.headers["x-total-count"]),
