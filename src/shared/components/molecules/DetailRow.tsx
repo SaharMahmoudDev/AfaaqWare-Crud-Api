@@ -6,7 +6,7 @@ export function DetailRow({
   value,
 }: {
   label: string;
-  value: string;
+  value: string|number;
 }) {
   return (
     <div className="grid grid-cols-[80px_1fr] gap-4 text-sm">

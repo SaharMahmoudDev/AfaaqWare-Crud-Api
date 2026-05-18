@@ -25,7 +25,7 @@ export function ActionCard({
   onClick,
 }: ActionCardProps) {
   return (
-    <Card interactive className="space-y-3" padding="sm">
+    <Card interactive className="space-y-3 bg-card/30" padding="sm">
       <div className="flex items-start gap-4">
         <Icon
           icon={icon}

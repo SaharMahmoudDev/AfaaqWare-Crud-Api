@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AppProviders from "@/providers/AppProviders";
 import { WithChildren } from "@/shared/types/react.types";
+import { Toaster } from "sonner";
+import { useLocale } from "next-intl";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<WithChildren>) {
+  const locale=useLocale()
   return (
     <html
       lang="en"
@@ -30,6 +33,11 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <AppProviders>
             {children}
+             <Toaster
+          position={locale==="ar"?"top-right":"top-left"}
+          richColors
+          closeButton
+        />
         </AppProviders>
       </body>
     </html>

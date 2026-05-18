@@ -23,6 +23,8 @@ export function useApiQuery<TResponse>({
   return useQuery<TResponse, Error>({
     queryKey,
     queryFn,
+    staleTime: 1000 * 60 * 5,
+    gcTime:1000 * 60 * 10,
     ...options,
   });
 }

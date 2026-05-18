@@ -22,7 +22,7 @@ export default function ThemeToggle() {
       size="icon"
       variant="secondary"
     >
-      {isDark ? <Moon /> : <Sun />}
+      {isDark ? <Sun /> : <Moon />}
     </Button>
   );
 }
