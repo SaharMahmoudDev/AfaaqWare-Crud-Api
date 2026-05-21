@@ -19,8 +19,6 @@ export function Pagination({
   const locale = useLocale();
 
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
-  console.log(pages)
-  console.log(totalPages)
   const goToPrevious = () => {
     if (currentPage > 1) {
       onPageChange(currentPage - 1);

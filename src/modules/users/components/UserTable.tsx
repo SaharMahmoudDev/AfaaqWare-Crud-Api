@@ -74,7 +74,7 @@ export const UserTable = forwardRef<HTMLDivElement, UserTableProps>(
                     >
                       <TableCell>{user.id}</TableCell>
 
-                      <TableCell className="font-medium whitespace-nowrap">
+                      <TableCell className="min-w-[200px] font-medium ">
                         {user.name}
                       </TableCell>
 
@@ -108,7 +108,7 @@ export const UserTable = forwardRef<HTMLDivElement, UserTableProps>(
                   <TableRow>
                     <TableCell
                       colSpan={4}
-                      className="w-full h-32 text-center text-muted-foreground"
+                      className={`w-full ${isLoading?"h-100":"h-50"} text-center text-muted-foreground`}
                     >
                       {isLoading ? (
                         <LoaderCircle className="size-6 animate-spin mx-auto" />

@@ -79,13 +79,26 @@ export const useUsersDashboard = () => {
 
   const handleView = (user: User) => {
     scrollToSection(detailsUserRef);
-
     setDetailsUser(user);
   };
 
   const resetDetailsUser = () => {
     setDetailsUser(null);
   };
+
+  const updateUserInViewDetails = () => {
+  if (detailsUser?.id === editUserId) {
+    setDetailsUser((prev) => {
+      if (!prev) return null;
+
+      return {
+        ...prev,
+        name: updateValues.name,
+        email: updateValues.email,
+      };
+    });
+  }
+};
 
   // Delete User
   const { mutate: deleteUser } = useDeleteUser();
@@ -106,6 +119,7 @@ export const useUsersDashboard = () => {
     deleteUser(user.id, {
       onSuccess: () => {
         showSuccessToast(t, "deleteSuccess");
+        resetDetailsUser()
       },
       onError: () => {
         showErrorToast(t, "deleteError");
@@ -156,8 +170,8 @@ export const useUsersDashboard = () => {
       {
         onSuccess: () => {
           showSuccessToast(t, "updateSuccess");
-
           scrollToSection(tableRef);
+          updateUserInViewDetails()
         },
         onError: () => {
           showErrorToast(t, "updateError");

@@ -61,7 +61,7 @@ function TableCell({
   return (
     <td
       className={cn(
-        "px-4 py-4  align-middle text-foreground dark:text-foreground/90 text-md",
+        "px-4 py-4 max-w-[300px] align-middle text-foreground dark:text-foreground/90 text-md break-words whitespace-normal",
         className,
       )}
       {...props}
