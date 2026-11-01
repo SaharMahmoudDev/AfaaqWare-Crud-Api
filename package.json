@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "type-check": "tsc --noEmit",
-    "check": "npm run lint && npm run type-check && npm run build"
+    "check": "npm run lint && npm run type-check && npm run build",
+    "cf:build": "opennextjs-cloudflare build"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.100.10",
@@ -17,7 +18,7 @@
     "clsx": "^2.1.1",
     "lottie-react": "^2.4.1",
     "lucide-react": "^1.14.0",
-    "next": "16.2.6",
+    "next": "^16.3.8",
     "next-intl": "^4.11.2",
     "next-themes": "^0.4.6",
     "react": "19.2.4",
@@ -27,6 +28,7 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -34,6 +36,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.147.0"
   }
 }
